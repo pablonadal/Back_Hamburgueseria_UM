@@ -1,0 +1,32 @@
+# Java
+*.class
+
+# Maven
+target/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Spring Boot
+mvnw
+mvnw.cmd
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+logs/
+
+# OS-specific files
+Thumbs.db
+.DS_Store
+
+# Package Files
+*.jar
+*.war
+*.ear
