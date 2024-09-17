@@ -15,6 +15,10 @@ public class HamburguesaService {
         return repository.findAll();
     }
 
+    public Hamburguesa findById(Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
     public Hamburguesa saveHamburguesa(Hamburguesa hamburguesa) {
         return repository.save(hamburguesa);
     }

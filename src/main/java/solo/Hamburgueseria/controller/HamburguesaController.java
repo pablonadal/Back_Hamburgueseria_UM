@@ -1,5 +1,7 @@
 package solo.Hamburgueseria.controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import solo.Hamburgueseria.entity.Hamburguesa;
 import solo.Hamburgueseria.service.HamburguesaService;
@@ -15,6 +17,15 @@ public class HamburguesaController {
     @GetMapping
     public List<Hamburguesa> getAllHamburguesas() {
         return service.getAllHamburguesas();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Hamburguesa> getHamburguesaById(@PathVariable Long id) {
+        Hamburguesa hamburguesa = service.findById(id);
+        if (hamburguesa == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(hamburguesa, HttpStatus.OK);
     }
 
     @PostMapping
